@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'articles#new'
   resources :articles
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
