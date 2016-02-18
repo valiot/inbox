@@ -23,16 +23,9 @@
     <%=f.error_span(:link) %>
   </div>
   <div class="form-group">
-    <%= f.label :status, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :status, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:status) %>
-  </div>
-  <div class="form-group">
     <%= f.label :category_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :category_id, :class => 'form-control' %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {}, :class => 'form-control' %>
     </div>
     <%=f.error_span(:category_id) %>
   </div>
