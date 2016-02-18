@@ -17,7 +17,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= link_to article.id, article_path(article) %></td>
-        <td><%= article.link %></td>
+        <td><%= link_to article.link, article.link, target: :blank %></td>
         <td><%= article.status %></td>
         <td><%= article.category_id %></td>
         <td><%=l article.created_at %></td>
