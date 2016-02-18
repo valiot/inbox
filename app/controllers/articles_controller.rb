@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def approved
+    @articles = Article.where(status: :approved)
+  end
+
   # GET /articles/1
   # GET /articles/1.json
   def show
