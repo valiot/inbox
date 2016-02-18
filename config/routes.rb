@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'articles#new'
   get 'articles/approved' => 'articles#approved', as: 'approved_article'
+  post 'articles/approve/:id' => 'articles#approve', as: 'approve_article'
+  post 'articles/reject/:id' => 'articles#reject', as: 'reject_article'
   resources :articles
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.

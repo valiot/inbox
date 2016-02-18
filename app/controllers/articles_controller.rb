@@ -1,14 +1,38 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.where(status: 0)
   end
 
   def approved
-    @articles = Article.where(status: :approved)
+    @articles = Article.where(status: 1)
+  end
+
+  def approve
+    respond_to do |format|
+      if @article.update(status: :approved)
+        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.js
+      else
+        format.html { render :edit }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def reject
+    respond_to do |format|
+      if @article.update(status: :rejected)
+        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.js
+      else
+        format.html { render :edit }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /articles/1
@@ -73,6 +97,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:link, :approved)
+      params.require(:article).permit(:link, :approved, :category_id)
     end
 end

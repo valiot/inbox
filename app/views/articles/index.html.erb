@@ -15,20 +15,17 @@
   </thead>
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
+      <tr id="article-<%= article.id %>">
         <td><%= link_to article.id, article_path(article) %></td>
         <td><%= article.link %></td>
         <td><%= article.status %></td>
         <td><%= article.category_id %></td>
         <td><%=l article.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_article_path(article), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      article_path(article),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to glyph(:ok), approve_article_path(article),
+              remote: true, method: :post, class: 'btn btn-default btn-xs' %>
+          <%= link_to glyph(:remove), reject_article_path(article),
+              remote: true, method: :post, class: 'btn btn-xs btn-danger' %>
         </td>
       </tr>
     <% end %>
