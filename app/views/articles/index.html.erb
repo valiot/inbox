@@ -1,6 +1,6 @@
 <%- model_class = Article -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Awaiting Moderation Articles</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -23,9 +23,11 @@
         <td><%=l article.created_at %></td>
         <td>
           <%= link_to glyph(:ok), approve_article_path(article),
-              remote: true, method: :post, class: 'btn btn-default btn-xs' %>
+              remote: true, method: :post, class: 'btn btn-default btn-xs',
+              data: { confirm: '¿Estas seguro? Solo Adrián tiene permiso.' } %>
           <%= link_to glyph(:remove), reject_article_path(article),
-              remote: true, method: :post, class: 'btn btn-xs btn-danger' %>
+              remote: true, method: :post, class: 'btn btn-danger btn-xs',
+              data: { confirm: '¿Estas seguro? Solo Adrián tiene permiso.' }  %>
         </td>
       </tr>
     <% end %>
