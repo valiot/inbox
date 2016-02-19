@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'articles#new'
-  get 'articles/approved' => 'articles#approved', as: 'approved_article'
+  get 'articles/approved' => 'articles#approved', as: 'approved_articles'
   post 'articles/approve/:id' => 'articles#approve', as: 'approve_article'
   post 'articles/reject/:id' => 'articles#reject', as: 'reject_article'
   resources :articles
