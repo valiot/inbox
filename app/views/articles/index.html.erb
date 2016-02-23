@@ -19,7 +19,7 @@
         <td><%= link_to article.id, article_path(article) %></td>
         <td><%= link_to article.link, article.link, target: :blank %></td>
         <td><%= article.status %></td>
-        <td><%= article.category_id %></td>
+        <td><%= article.category.name %></td>
         <td><%=l article.created_at %></td>
         <td>
           <%= link_to glyph(:ok), approve_article_path(article),
