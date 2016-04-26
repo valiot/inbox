@@ -10,6 +10,11 @@
   <dd><%= @article.status %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
   <dd><%= @article.category_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @article.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @article.description %></dd>
+
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
