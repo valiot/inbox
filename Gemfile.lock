@@ -54,6 +54,7 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     ast (2.2.0)
+    bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -134,6 +135,8 @@ GEM
     pg (0.18.4)
     powerpack (0.1.1)
     puma (2.16.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -223,6 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
   byebug
@@ -233,6 +237,7 @@ DEPENDENCIES
   metainspector!
   pg
   puma
+  pundit
   rails (= 4.2.5)
   rails_12factor
   rubocop
