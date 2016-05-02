@@ -24,10 +24,9 @@
         <td>
           <%= link_to glyph(:ok), approve_article_path(article),
               remote: true, method: :post, class: 'btn btn-default btn-xs',
-              data: { confirm: '¿Estas seguro? Solo Adrián tiene permiso.' } %>
+              error: "You're not authorized" %>
           <%= link_to glyph(:remove), reject_article_path(article),
-              remote: true, method: :post, class: 'btn btn-danger btn-xs',
-              data: { confirm: '¿Estas seguro? Solo Adrián tiene permiso.' }  %>
+              remote: true, method: :post, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
     <% end %>
