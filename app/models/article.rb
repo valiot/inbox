@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
     self.description = page.description
     self.title = page.title
     self.length = page.body_length
+    self.image = page.images.best
   end
 
   def reading_time
