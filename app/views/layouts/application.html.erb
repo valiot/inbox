@@ -49,10 +49,10 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "New Article", new_article_path %></li>
-              <li><%= link_to "Approved Articles", approved_articles_path %></li>
-              <li><%= link_to "Awaiting Moderation Articles", articles_path %></li>
-              <li><%= link_to "Categories", categories_path %></li>
-              <% if current_user %>
+            <li><%= link_to "Approved Articles", approved_articles_path %></li>
+            <li><%= link_to "Awaiting Moderation Articles", articles_path %></li>
+            <li><%= link_to "Categories", categories_path %></li>
+            <% if current_user %>
               <li><%= link_to "Log Out", log_out_path %></li>
             <% else %>
               <li><%= link_to "Log In", log_in_path %></li>
@@ -65,7 +65,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <%= bootstrap_flash %>
+          <div id="flash">
+            <%= bootstrap_flash %>
+          </div>
 
           <%= yield %>
         </div>

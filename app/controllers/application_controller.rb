@@ -15,8 +15,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def user_not_authorized
-    flash.now.alert = 'You are not authorized to perform this action.'
     flash[:alert] = 'You are not authorized to perform this action.'
-    redirect_to(request.referrer || root_path)
+    redirect_to(unauthorized_path)
   end
 end

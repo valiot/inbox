@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     authorize Article
     respond_to do |format|
       if @article.update(status: :approved)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        flash.now[:notice] = 'Article was successfully approved.'
         format.js
       else
         format.html { render :edit }
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     authorize Article
     respond_to do |format|
       if @article.update(status: :rejected)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        flash.now[:alert] = 'Article was successfully rejected.'
         format.js
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PATC/PUT /articles/1
+  # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
