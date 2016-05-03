@@ -12,9 +12,10 @@ class ArticlesController < ApplicationController
   end
 
   def approve
+    authorize Article
     respond_to do |format|
       if @article.update(status: :approved)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        flash.now[:notice] = 'Article was successfully approved.'
         format.js
       else
         format.html { render :edit }
@@ -24,9 +25,10 @@ class ArticlesController < ApplicationController
   end
 
   def reject
+    authorize Article
     respond_to do |format|
       if @article.update(status: :rejected)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        flash.now[:alert] = 'Article was successfully rejected.'
         format.js
       else
         format.html { render :edit }
