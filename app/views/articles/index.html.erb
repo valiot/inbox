@@ -23,8 +23,7 @@
         <td><%=l article.created_at %></td>
         <td>
           <%= link_to glyph(:ok), approve_article_path(article),
-              remote: true, method: :post, class: 'btn btn-default btn-xs',
-              error: "You're not authorized" %>
+              remote: true, method: :post, class: 'btn btn-default btn-xs' %>
           <%= link_to glyph(:remove), reject_article_path(article),
               remote: true, method: :post, class: 'btn btn-danger btn-xs' %>
         </td>
