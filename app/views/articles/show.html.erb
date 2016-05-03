@@ -16,6 +16,8 @@
   <dd><%= @article.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:reading_time) %>:</strong></dt>
   <dd><%= @article.reading_time %> minutes</dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= image_tag @article.image %></dd>
 
 </dl>
 
