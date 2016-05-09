@@ -4,7 +4,7 @@ ruby '2.3.1'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
-gem 'metainspector', github: 'DisruptiveAngels/metainspector'
+gem 'metainspector'
 gem 'pundit'
 
 group :production do
