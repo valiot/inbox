@@ -7,6 +7,12 @@ class Article < ActiveRecord::Base
   before_create :parse_link
   before_create :set_issue
 
+  def reading_time
+    (length / 150.0).ceil
+  end
+
+  private
+
   def parse_link
     page = MetaInspector.new(link)
     self.description = page.description
@@ -18,12 +24,6 @@ class Article < ActiveRecord::Base
   def set_issue
     self.issue = Issue.current_issue
   end
-
-  def reading_time
-    (length / 150.0).ceil
-  end
-
-  private
 
   def upload_to_s3(url)
     uri = URI.parse(url)
