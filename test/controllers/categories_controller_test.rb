@@ -21,7 +21,7 @@ class CategoriesControllerTest < ActionController::TestCase
       post :create, category: { name: @category.name }
     end
 
-    assert_redirected_to category_path(assigns(:category))
+    assert_redirected_to admin_category_path(assigns(:category))
   end
 
   test "should show category" do
@@ -36,7 +36,7 @@ class CategoriesControllerTest < ActionController::TestCase
 
   test "should update category" do
     patch :update, id: @category, category: { name: @category.name }
-    assert_redirected_to category_path(assigns(:category))
+    assert_redirected_to admin_category_path(assigns(:category))
   end
 
   test "should destroy category" do
@@ -44,6 +44,6 @@ class CategoriesControllerTest < ActionController::TestCase
       delete :destroy, id: @category
     end
 
-    assert_redirected_to categories_path
+    assert_redirected_to admin_categories_path
   end
 end

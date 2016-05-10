@@ -21,7 +21,7 @@ class ArticlesControllerTest < ActionController::TestCase
       post :create, article: { approved: @article.approved, link: @article.link }
     end
 
-    assert_redirected_to article_path(assigns(:article))
+    assert_redirected_to admin_article_path(assigns(:article))
   end
 
   test "should show article" do
@@ -36,7 +36,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should update article" do
     patch :update, id: @article, article: { approved: @article.approved, link: @article.link }
-    assert_redirected_to article_path(assigns(:article))
+    assert_redirected_to admin_article_path(assigns(:article))
   end
 
   test "should destroy article" do
@@ -44,6 +44,6 @@ class ArticlesControllerTest < ActionController::TestCase
       delete :destroy, id: @article
     end
 
-    assert_redirected_to articles_path
+    assert_redirected_to admin_articles_path
   end
 end

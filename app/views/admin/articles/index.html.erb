@@ -15,15 +15,15 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= link_to article.id, article_path(article) %></td>
+        <td><%= link_to article.id, admin_article_path(article) %></td>
         <td><%= link_to article.link, article.link, target: :blank %></td>
         <td><%= article.status %></td>
         <td><%= article.category.name %></td>
         <td><%=l article.created_at %></td>
         <td>
-          <%= link_to glyph(:ok), approve_article_path(article),
+          <%= link_to glyph(:ok), admin_approve_article_path(article),
               remote: true, method: :post, class: 'btn btn-default btn-xs' %>
-          <%= link_to glyph(:remove), reject_article_path(article),
+          <%= link_to glyph(:remove), admin_reject_article_path(article),
               remote: true, method: :post, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
@@ -31,4 +31,4 @@
   </tbody>
 </table>
 
-<%= link_to 'New', new_article_path, class: 'btn btn-primary' %>
+<%= link_to 'New', new_admin_article_path, class: 'btn btn-primary' %>
