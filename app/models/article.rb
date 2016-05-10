@@ -1,6 +1,7 @@
 require 'open-uri'
 class Article < ActiveRecord::Base
   belongs_to :category
+  belogns_to :issue
   enum status: [:submited, :approved, :rejected]
 
   before_create :parse_link
