@@ -6,6 +6,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'metainspector'
 gem 'pundit'
+gem 's3'
 
 group :production do
   gem 'rails_12factor'
