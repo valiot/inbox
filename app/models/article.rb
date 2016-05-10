@@ -1,10 +1,11 @@
 require 'open-uri'
 class Article < ActiveRecord::Base
   belongs_to :category
-  belogns_to :issue
+  belongs_to :issue
   enum status: [:submited, :approved, :rejected]
 
   before_create :parse_link
+  before_create :set_issue
 
   def parse_link
     page = MetaInspector.new(link)
@@ -12,6 +13,10 @@ class Article < ActiveRecord::Base
     self.title = page.title
     self.length = page.body_length
     self.image = upload_to_s3(page.images.best)
+  end
+
+  def set_issue
+    self.issue = Issue.current_issue
   end
 
   def reading_time
