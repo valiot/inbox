@@ -16,6 +16,9 @@ class Admin::ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = 'You are not authorized to perform this action.'
-    redirect_to(unauthorized_path)
+    respond_to do |format|
+      format.html { redirect_to admin_articles_path }
+      format.js { redirect_to admin_unauthorized_path }
+    end
   end
 end

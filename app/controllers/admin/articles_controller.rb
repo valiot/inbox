@@ -10,7 +10,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def approve
-    authorize Article
+    authorize @article
     respond_to do |format|
       if @article.update(status: :approved)
         flash.now[:notice] = 'Article was successfully approved.'
@@ -23,7 +23,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def reject
-    authorize Article
+    authorize @article
     respond_to do |format|
       if @article.update(status: :rejected)
         flash.now[:alert] = 'Article was successfully rejected.'
@@ -47,23 +47,25 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def create
     @article = Article.new(article_params)
-
+    authorize @article
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to [:admin, @article], notice: 'Article was successfully created.'
     else
       render :new
     end
   end
 
   def update
+    authorize @article
     if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to [:admin, @article], notice: 'Article was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
+    authorize @article
     @article.destroy
     redirect_to articles_url, notice: 'Article was successfully destroyed.'
   end

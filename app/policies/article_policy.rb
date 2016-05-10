@@ -1,5 +1,4 @@
 class ArticlePolicy < ApplicationPolicy
-
   def approve?
     user.admin?
   end
@@ -8,4 +7,15 @@ class ArticlePolicy < ApplicationPolicy
     user.admin?
   end
 
+  def create?
+    user
+  end
+
+  def update?
+    user
+  end
+
+  def destroy?
+    user
+  end
 end
