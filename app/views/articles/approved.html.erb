@@ -1,14 +1,13 @@
-<%- model_class = Article -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Approved Articles</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:link) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:category) %></th>
+      <th>Id</th>
+      <th>Link</th>
+      <th>Status</th>
+      <th>Category</th>
     </tr>
   </thead>
   <tbody>
