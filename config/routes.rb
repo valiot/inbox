@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
   end
+  resources :issues, only: [:index, :show]
+  root 'issues#index'
 end

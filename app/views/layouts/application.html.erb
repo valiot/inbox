@@ -39,20 +39,8 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div id="flash">
-            <%= bootstrap_flash %>
-          </div>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-      <footer>
-
-      </footer>
-
-    </div> <!-- /container -->
-
+      <%= yield %>
+    </div>
+    <div id="border-b"></div>
   </body>
 </html>
