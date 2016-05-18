@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :categories
   end
   resources :issues, only: [:index, :show]
-  root 'issues#index'
+  root 'pages#home'
 end
