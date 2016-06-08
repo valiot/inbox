@@ -30,14 +30,14 @@ header {
   }
 }
 
-h1 {
+.main-title {
   color: $disruptive-blue;
   font-size: 3.2em;
   font-weight: 500;
-  text-shadow: 2px 2px 0px #eee;
+  text-shadow: 2px 2px 0 #eee;
 }
 
-h2 {
+.main-pitch {
   font-weight: 300;
   margin-bottom: 20px;
 }
@@ -52,12 +52,12 @@ h2 {
 main {
   text-align: center;
 
-  img {
+  .newsletter-sample {
     margin-bottom: 1em;
     width: 670px;
   }
 
-  form {
+  .subscribe-form {
     background-color: lighten($disruptive-blue, 30%);
     padding: 6px 0;
 
