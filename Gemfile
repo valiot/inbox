@@ -53,7 +53,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rubocop'
-  gem 'scss_lint'
+  gem 'scss_lint', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
