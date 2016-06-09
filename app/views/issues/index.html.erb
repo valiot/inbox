@@ -11,3 +11,27 @@
     </div>
   </nav>
 </header>
+
+<div class="container">
+  <div class="issues-page">
+    <h1>Archives</h1>
+    <div class="columns">
+      <ul class="issues">
+        <% @issues.each do |issue| %>
+        <li>
+          <a href="/">Issue #<%= issue.guid %></a> — <%= issue.issued_at.strftime("%d de %b del %Y") %>
+          <div class="description">
+            <ul>
+              <% issue.articles.last(3).each do |i| %>
+              <li>
+                <%= i.title %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

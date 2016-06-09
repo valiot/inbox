@@ -108,3 +108,28 @@ main {
   position: absolute;
   width: 100%;
 }
+
+.issues-page {
+  display: block;
+  padding: 0 12px;
+  max-width: 740px;
+  h1 {
+    color: $disruptive-blue;
+    font-weight: 300;
+  }
+  ul {
+    list-style-type: none;
+  }
+
+  .description {
+    ul {
+      list-style-type: square;
+      margin-top: 3px;
+      li {
+        line-height: 1.3em;
+        margin-bottom: 2px;
+        break-inside: avoid;
+      }
+    }
+  }
+}
