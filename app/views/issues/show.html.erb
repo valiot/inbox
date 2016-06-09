@@ -1,0 +1,49 @@
+<header>
+  <nav class="pub_nav">
+    <div class="sitename">
+      <a href="/">Disruptive Newsletter</a>
+    </div>
+    <div class="items">
+      <a href="#" class="issues">ARCHIVES</a><span class="divider">|</span>
+      <a href="#" class="search">SEARCH</a><span class="divider">|</span>
+      <a href="#" class="latest">LATEST ISSUE</a><span class="divider">|</span>
+      <a href="#">RSS</a>
+    </div>
+  </nav>
+</header>
+<body>
+  <h1><a href="/issues">Issues</a> &raquo; <%= @issue.guid %></h1>
+  <div class="issue-html">
+    <table class="main-table">
+      <tr>
+        <td>
+          <table class="table-top">
+            <tr>
+              <td>
+                <h2>Disruptive Weekly</h2>
+              </td>
+              <td>
+                <p>Issue <%= @issue.guid %> — <%= @issue.issued_at.strftime("%d de %b del %Y") %></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <% @issue.articles.each do |article| %>
+        <tr>
+          <td>
+            <table class="table-article">
+              <tr>
+                <td>
+                  <h3><%= article.category.name.upcase %></h3>
+                  <a target="_blank" href="<%= article.link %>"><%= article.title %></a>
+                  <p><%= article.description[0...200] %>...</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>
