@@ -1,17 +1,3 @@
-<header>
-  <nav class="pub_nav">
-    <div class="sitename">
-      <a href="/">Disruptive Newsletter</a>
-    </div>
-    <div class="items">
-      <a href="#" class="issues">ARCHIVES</a><span class="divider">|</span>
-      <a href="#" class="search">SEARCH</a><span class="divider">|</span>
-      <a href="#" class="latest">LATEST ISSUE</a><span class="divider">|</span>
-      <a href="#">RSS</a>
-    </div>
-  </nav>
-</header>
-
 <div class="container">
   <div class="issues-page">
     <h1>Archives</h1>
@@ -19,7 +5,7 @@
       <ul class="issues">
         <% @issues.each do |issue| %>
         <li>
-          <a href="/issues/<%= issue.guid %>">Issue #<%= issue.guid %></a> — <%= issue.issued_at.strftime("%d de %b del %Y") %>
+          <a href="/issues/<%= issue.id %>">Issue #<%= issue.id %></a> — <%= issue.issued_at.strftime("%d de %b del %Y") %>
           <div class="description">
             <ul>
               <% issue.articles.last(3).each do |i| %>
