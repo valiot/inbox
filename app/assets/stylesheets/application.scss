@@ -39,6 +39,7 @@ header {
   font-size: 3.2em;
   font-weight: 500;
   text-shadow: 2px 2px 0 #eee;
+  text-align: center;
 }
 
 .main-pitch {
@@ -118,6 +119,10 @@ main {
   clear: left;
   text-align: center;
   padding-top: 12px;
+
+  a {
+    color: $disruptive-blue;
+  }
 }
 
 .items {
@@ -135,7 +140,7 @@ main {
   display: block;
   padding: 0 12px;
   max-width: 740px;
-  h1 {
+  h1, a {
     color: $disruptive-blue;
     font-weight: 300;
   }
@@ -143,16 +148,23 @@ main {
     list-style-type: none;
   }
 
+  .columns {
+    background-color: #fff;
+    padding: 20px;
+  }
+
   .description {
     ul {
       list-style-type: square;
       margin-top: 3px;
+      margin: none;
       li {
         color: #9C9999;
         font-weight: normal;
         font-size: 0.8em;
         line-height: 1.3em;
         margin-bottom: 2px;
+        margin-left: 30px;
         break-inside: avoid;
       }
     }
