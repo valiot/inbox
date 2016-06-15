@@ -1,0 +1,169 @@
+<table class="main">
+  <tbody>
+    <tr>
+      <td>
+
+        <table class="issue-container">
+          <tbody>
+            <!-- Preheader -->
+            <tr>
+              <td>
+                <p class="preheader">
+                  Email not displaying correctly?
+                  <a href="#">View in browser</a>
+                </p>
+              </td>
+            </tr>
+
+            <!-- Header -->
+            <tr>
+              <td class="header">
+                <h1 class="header-title">Disruptive Newsletter</h1>
+                <p class="header-issue">ISSUE:<%= @issue.id %></p>
+              </td>
+            </tr>
+
+            <!-- Main Article -->
+            <tr>
+              <td>
+                <table class="mainArticle">
+                  <tbody>
+
+                    <!-- Imagen post principal -->
+                    <tr>
+                      <td>
+                        <img class="mainArticle-image" src="<%= @issue.articles.first.image %>" alt="Post Principal" />
+                      </td>
+                    </tr>
+
+                    <!-- Contenido post principal -->
+                    <tr>
+                      <td>
+                        <h2 class="mainArticle-title">
+                          <%= @issue.articles.first.title %>
+                        </h2>
+                        <p class="mainArticle-content">
+                          <%= @issue.articles.first.description[0...200] %>...
+                        </p>
+                        <a href="<%= @issue.articles.first.link %>" class="mainArticle-btn">READ MORE</a>
+                      </td>
+                    </tr>
+
+                    <!-- Share Icons -->
+                    <tr>
+                      <td>
+                        <p class="share-title">SHARE:</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="share-icons">
+                        <a href="#" class="shareIcon shareIcon--tw">
+                          <img src="img/twitter-icon.png" alt="Twitter Logo">
+                        </a>
+                        <a href="#" class="shareIcon shareIcon--fb">
+                          <img src="img/facebook-icon.png" alt="Facebook Logo">
+                        </a>
+                        <a href="#" class="shareIcon shareIcon--in">
+                          <img src="img/linkedin-icon.png" alt="LinkedIn Logo">
+                        </a>
+                      </td>
+                    </tr>
+
+                    <!-- Save Links -->
+                    <tr>
+                      <td>
+                        <p class="saveLinks">
+                          Save for later:
+                          <a href="#" class="link-pocket">Pocket</a> |
+                          <a href="#" class="link-instapaper">Instapaper</a> |
+                          <a href="#" class="link-readability">Readability</a>
+                        </p>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Curated Links Title -->
+            <tr>
+              <td>
+                <h4 class="contentTitle">Curated News</h4>
+              </td>
+            </tr>
+
+            <!-- Curated Articles -->
+            <tr>
+              <td>
+                <table class="articles">
+                  <tbody>
+                    <!-- Article -->
+                  <% @issue.articles.each do |article| %>
+                    <tr>
+                      <td class="wrapped">
+                        <table class="article">
+                          <tbody>
+                            <tr>
+                              <td class="article-image">
+                                <a href="#">
+                                  <img src="<%= article.image %>" alt="Image" />
+                                </a>
+                              </td>
+                              <td>
+                                <table class="article-content">
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="2">
+                                        <p class="article-category"><%= article.category.name %></p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        <a class="article-title" href="#">
+                                          <h3><%= article.title %></h3>
+                                        </a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <p class="saveLinks">
+                                          Save for later: <br>
+                                          <a href="·" class="link-pocket">Pocket</a> |
+                                          <a href="#" class="link-instapaper">Instapaper</a> |
+                                          <a href="#" class="link-readability">Readability</a>
+                                        </p>
+                                      </td>
+                                      <td class="article-time">
+                                        <p><%= article.reading_time %> min read</p>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <% end %>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

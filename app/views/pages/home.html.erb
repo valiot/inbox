@@ -1,11 +1,10 @@
 <header>
-  <a href="#">ARCHIVES</a>
-  <span>|</span>
-  <a href="#">SEARCH</a>
-  <span>|</span>
-  <a href="#">LATEST ISSUE</a>
-  <span>|</span>
-  <a href="#">RSS</a>
+  <div class="home-items">
+    <a href="#" class="issues">ARCHIVES</a><span class="divider">|</span>
+    <a href="#" class="search">SEARCH</a><span class="divider">|</span>
+    <a href="/issues/<%= @issues.last.id %>" class="latest">LATEST ISSUE</a><span class="divider">|</span>
+    <a href="#">RSS</a>
+  </div>
 </header>
 <main>
   <h1 class="main-title">Disruptive Newsletter</h1>
@@ -18,7 +17,7 @@
     <div>Join 39074 other subscribers today. No spam, ever.</div>
   </form>
   <div class="sample">
-    Check out <a href="/issues/296">our latest issue (296)</a> for a sample of what we're all about.
+    Check out <a href="/issues/<%= @issues.last.id %>">our latest issue (<%= @issues.last.id %>)</a> for a sample of what we're all about.
   </div>
   <div>
     One e-mail each Thursday. Easy to unsubscribe.<br>
