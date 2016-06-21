@@ -15,11 +15,6 @@ body {
     // color: $disruptive-blue;
     text-decoration: none;
     font-weight: 300;
-
-
-    &[href^="http"] {
-      text-decoration: underline;
-    }
   }
 }
 

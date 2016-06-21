@@ -7,6 +7,7 @@ gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'metainspector'
 gem 'pundit'
 gem 's3'
+gem 'premailer-rails'
 
 group :production do
   gem 'rails_12factor'

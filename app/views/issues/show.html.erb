@@ -59,13 +59,13 @@
                     <tr>
                       <td class="share-icons">
                         <a href="#" class="shareIcon shareIcon--tw">
-                          <img src="img/twitter-icon.png" alt="Twitter Logo">
+                          <%= image_tag 'twitter-icon.png'%>
                         </a>
                         <a href="#" class="shareIcon shareIcon--fb">
-                          <img src="img/facebook-icon.png" alt="Facebook Logo">
+                          <%= image_tag 'facebook-icon.png'%>
                         </a>
                         <a href="#" class="shareIcon shareIcon--in">
-                          <img src="img/linkedin-icon.png" alt="LinkedIn Logo">
+                          <%= image_tag 'linkedin-icon.png'%>
                         </a>
                       </td>
                     </tr>
@@ -75,9 +75,9 @@
                       <td>
                         <p class="saveLinks">
                           Save for later:
-                          <a href="#" class="link-pocket">Pocket</a> |
-                          <a href="#" class="link-instapaper">Instapaper</a> |
-                          <a href="#" class="link-readability">Readability</a>
+                          <a href="#" id="thisweeksfavorite_img1_p" class="saveToImg link-pocket">Pocket</a> |
+                          <a href="#" id="thisweeksfavorite_img1_i" class="saveToImg link-instapaper">Instapaper</a> |
+                          <a href="#" id="thisweeksfavorite_img1_r" class="saveToImg link-readability">Readability</a>
                         </p>
                       </td>
                     </tr>
@@ -130,9 +130,9 @@
                                       <td>
                                         <p class="saveLinks">
                                           Save for later: <br>
-                                          <a href="·" class="link-pocket">Pocket</a> |
-                                          <a href="#" class="link-instapaper">Instapaper</a> |
-                                          <a href="#" class="link-readability">Readability</a>
+                                          <a href="#" id="thisweeksfavorite_img1_p" class="saveToImg link-pocket">Pocket</a> |
+                                          <a href="#" id="thisweeksfavorite_img1_i" class="saveToImg link-instapaper">Instapaper</a> |
+                                          <a href="#" id="thisweeksfavorite_img1_r" class="saveToImg link-readability">Readability</a>
                                         </p>
                                       </td>
                                       <td class="article-time">
@@ -167,3 +167,35 @@
     </tr>
   </tbody>
 </table>
+<script>
+  function openTab(url) { window.open(url, '_blank'); window.focus(); }
+  $(function () {
+      $(".saveToImg").click(function (e) {
+          var event = e || window.event;
+          event.stopPropagation();
+
+          var imgElem = $(this);
+          var idParts = imgElem.attr("id").split("_");
+          var linkId = idParts[0] + "_link" + idParts[1].replace("img", "");
+          var linkElem = $("a#" + linkId);
+
+          if (!linkElem) {
+              return;
+          }
+
+          var fullUrl;
+          if (idParts[2] === "i") { // instapaper
+              fullUrl = "http://www.instapaper.com/hello2?url=" + encodeURI(linkElem.attr("data-url")) + "&title=" + encodeURI(linkElem.text());
+          } else if (idParts[2] === "p") { //pocket
+              fullUrl = "https://getpocket.com/save?url=" + encodeURI(linkElem.attr("data-url")) + "&title=" + encodeURI(linkElem.text());
+          } else { // readability
+              fullUrl = "http://www.readability.com/save?url=" + encodeURI(linkElem.attr("data-url"));
+          }
+
+          //console.log(fullUrl);
+          openTab(fullUrl);
+
+          return false;
+      });
+  });
+    </script>
