@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
   end
-  resources :issues, only: [:index, :show]
+
+  resources :issues, only: [:index, :show] do
+    member do
+      get 'feed', to: 'issues#feed'
+    end
+  end
+
   root 'pages#home'
 end

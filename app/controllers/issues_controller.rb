@@ -10,4 +10,8 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.find(params[:id])
   end
+
+  def feed
+    @issue = Issue.find(params[:id])
+  end
 end
