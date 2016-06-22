@@ -22,16 +22,10 @@ xml.rss :version => "2.0" do
         xml.guid article.id
 
         description = article.description
-        # if you like, do something with your content description here e.g. insert image tags.
-        # Optional. I'm doing this on my website.
-        # if article.image.exists?
-        #     image_url = article.image.url(:large)
-        #     image_align = ""
-        #     image_tag = "
-        #         <p><img src='" + image_url +  "' + align='" + image_align  + "' /></p>
-        #       "
-        #     description = description.sub('{image}', image_tag)
-        # end
+        image_url = article.image
+        image_align = ""
+        image_tag = "<p><img src='" + image_url +  "' + align='" + image_align  + "' /></p>"
+        description = description.sub('{image}', image_tag)
         xml.description "<p>" + description + "</p>"
 
       end
