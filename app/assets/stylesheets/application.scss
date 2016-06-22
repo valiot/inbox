@@ -427,8 +427,15 @@ body {
 }
 
 .article-image a {
+  overflow: hidden;
   display: block;
+  max-height: 133px;
   text-decoration: none;
+}
+
+.article-image a img {
+  width: 100%;
+  display: block;
 }
 
 .article-content {
