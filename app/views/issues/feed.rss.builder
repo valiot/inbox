@@ -23,7 +23,6 @@ xml.rss :version => "2.0" do
         xml.categories article.category.name
         xml.media :content, url: article.image, type: 'image/*'
         xml.description article.description
-        err
 
       end
     end
