@@ -16,7 +16,6 @@ class Article < ActiveRecord::Base
   def crop_image_and_upload_to_s3(url)
     image = MiniMagick::Image.open(url)
     image.resize "360x240"
-    image
 
     uri = URI.parse(url)
     filename, extension = uri.path.split('/')[-1].split('.')[-2..-1]
