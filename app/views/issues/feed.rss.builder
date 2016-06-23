@@ -23,10 +23,15 @@ xml.rss :version => "2.0" do
         xml.category article.category.name
         xml.media(:content, url: article.image.sub(/^https?\:\/\//, '').sub(/^www./,''), medium: 'image', type: 'image/*')
         xml.media(:image, url: article.image.sub(/^https?\:\/\//, '').sub(/^www./,''), medium: 'image', type: 'image/*')
-        xml.image(url: article.image.sub(/^https?\:\/\//, '').sub(/^www./,''), medium: 'image', type: 'image/*')
         xml.description article.description
-        # xml.tag!("reading_time") { xml.cdata!("article.reading_time") }
-        xml.reading_time article.reading_time
+        xml.tag!("reading_time") { xml.cdata!(article.reading_time.to_s) }
+        xml.image do
+          xml.url article.image.sub(/^https?\:\/\//, '').sub(/^www./,'')
+          xml.link article.image.sub(/^https?\:\/\//, '').sub(/^www./,'')
+          xml.medium 'image'
+          xml.type 'image/*'
+        end
+        # xml.reading_time article.reading_time
       end
     end
   end
