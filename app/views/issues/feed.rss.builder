@@ -18,10 +18,10 @@ xml.rss :version => "2.0" do
         end
         xml.author "Disruptive Angels"
         xml.pubDate article.created_at.to_s(:rfc822)
-        xml.link "https://inbox.disruptiveangels.com/issues/#{article.id}"
+        xml.link "inbox.disruptiveangels.com/issues/#{article.id}"
         xml.guid article.id
         xml.categories article.category.name
-        xml.media :content, url: article.image, type: 'image/*'
+        xml.media :content, url: article.image.sub(/^https?\:\/\//, '').sub(/^www./,''), medium: 'image', type: 'image/*'
         xml.description article.description
 
       end
