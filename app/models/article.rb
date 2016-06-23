@@ -24,7 +24,7 @@ class Article < ActiveRecord::Base
 
     bucket = service.buckets.find(ENV['S3_BUCKET'])
     new_object = bucket.objects.build("#{filename}-#{SecureRandom.hex}.#{extension}")
-    new_object.content = open(image.path.sub(/^https?\:\/\//, '').sub(/^www./,''))
+    new_object.content = open(image.path)
 
 
     return new_object.url if new_object.save
