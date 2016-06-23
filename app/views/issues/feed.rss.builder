@@ -20,13 +20,9 @@ xml.rss :version => "2.0" do
         xml.pubDate article.created_at.to_s(:rfc822)
         xml.link "https://inbox.disruptiveangels.com/issues/#{article.id}"
         xml.guid article.id
-
-        description = article.description
-        image_url = article.image
-        image_align = ""
-        image_tag = "<p><img src='" + image_url +  "' + align='" + image_align  + "' /></p>"
-        description = description.sub('{image}', image_tag)
-        xml.description "<p>" + description + "</p>"
+        xml.categories article.category.name
+        xml.image article.image
+        xml.description article.description
 
       end
     end
