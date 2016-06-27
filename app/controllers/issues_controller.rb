@@ -1,17 +1,18 @@
 class IssuesController < ApplicationController
   def index
     @issues = Issue.all
-    respond_to do |format|
-      format.html
-      format.rss { render layout: false }
-    end
   end
 
   def show
     @issue = Issue.find(params[:id])
   end
 
-  def feed
-    @issue = Issue.find(params[:id])
+  def latest
+    @issue = Issue.find_by("issued_at = ?", Date.current.beginning_of_week + 3)
+
+    respond_to do |format|
+      format.html { render 'show' }
+      format.rss
+    end
   end
 end

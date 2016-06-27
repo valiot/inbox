@@ -16,11 +16,9 @@ Rails.application.routes.draw do
     resources :categories
   end
 
-  resources :issues, only: [:index, :show] do
-    member do
-      get 'feed', to: 'issues#feed'
-    end
-  end
+  get 'issues/latest' => 'issues#latest', as: 'issue_latest'
+
+  resources :issues, only: [:index, :show]
 
   root 'pages#home'
 end
