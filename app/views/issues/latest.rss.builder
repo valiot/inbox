@@ -4,6 +4,7 @@ xml.rss :version => "2.0", "xmlns:media" => "http://search.yahoo.com/mrss/", "xm
   xml.channel do
     xml.title "Disrupting Newsletter"
     xml.description "Entrepreneurship, Technology, Startups"
+    xml.id @issue.id
     xml.language "en"
 
     for article in @issue.articles
