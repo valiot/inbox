@@ -43,7 +43,7 @@
                           <%= @issue.articles.first.title %>
                         </h2>
                         <p class="mainArticle-content">
-                          <%= @issue.articles.first.description[0...200] %>...
+                          <%= @issue.articles.first.description[0...200] %>
                         </p>
                         <a href="<%= @issue.articles.first.link %>" class="mainArticle-btn">READ MORE</a>
                       </td>
@@ -58,13 +58,13 @@
 
                     <tr>
                       <td class="share-icons">
-                        <a href="#" class="shareIcon shareIcon--tw">
+                        <a href="https://twitter.com/share" class="shareIcon shareIcon--tw">
                           <%= image_tag 'twitter-icon.png'%>
                         </a>
-                        <a href="#" class="shareIcon shareIcon--fb">
+                        <a href="https://www.facebook.com/sharer.php?u=<%= @issue.articles.first.link %>" class="shareIcon shareIcon--fb">
                           <%= image_tag 'facebook-icon.png'%>
                         </a>
-                        <a href="#" class="shareIcon shareIcon--in">
+                        <a href="https://www.linkedin.com/shareArticle" class="shareIcon shareIcon--in">
                           <%= image_tag 'linkedin-icon.png'%>
                         </a>
                       </td>

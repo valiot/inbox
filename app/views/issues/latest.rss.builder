@@ -15,7 +15,7 @@ xml.rss :version => "2.0", "xmlns:media" => "http://search.yahoo.com/mrss/", "xm
         end
         xml.author article.reading_time
         xml.pubDate article.created_at.to_s(:rfc822)
-        xml.link "http://inbox.disruptiveangels.com/issues/#{article.id}"
+        xml.link article.link
         xml.category article.category.name
         xml.media(:content, url: article.image, type:'image/*', medium:'image')
         xml.description article.description
