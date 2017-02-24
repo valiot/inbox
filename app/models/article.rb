@@ -70,6 +70,7 @@ class Article < ActiveRecord::Base
   end
 
   def crop_image_and_upload_to_s3(url)
+    return false if url.nil?
     image = MiniMagick::Image.open(url)
     image = resize_with_crop(image, 360, 240)
 
