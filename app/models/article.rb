@@ -93,7 +93,7 @@ class Article < ActiveRecord::Base
     self.description = page.description
     self.title = page.title
     self.length = page.body_length
-    self.image = crop_image_and_upload_to_s3(page.images.best)
+    self.image = crop_image_and_upload_to_s3(page.images.best) || nil
   end
 
   def set_issue
