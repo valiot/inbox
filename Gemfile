@@ -6,7 +6,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'metainspector'
 gem 'pundit'
-gem 's3'
+gem 'aws-sdk'
 gem 'premailer-rails'
 gem 'mini_magick'
 
