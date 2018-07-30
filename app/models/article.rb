@@ -80,8 +80,9 @@ class Article < ActiveRecord::Base
     bucket = s3.bucket(ENV['S3_BUCKET'])
 
     new_object = bucket.object("#{filename}-#{SecureRandom.hex}.#{extension}")
+    new_object.put(body: open(image.path))
 
-    return new_object.public_url if new_object.put(body: open(image.path))
+    return new_object.public_url if new_object.acl.put(acl: 'public-read')
     false
   end
 
