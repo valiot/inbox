@@ -76,15 +76,13 @@ class Article < ActiveRecord::Base
 
     uri = URI.parse(url)
     filename, extension = uri.path.split('/')[-1].split('.')[-2..-1]
-    service = S3::Service.new(access_key_id: ENV['AWS_KEY'],
-    secret_access_key: ENV['AWS_SECRET'])
+    s3 = Aws::S3::Resource.new
+    bucket = s3.bucket(ENV['S3_BUCKET'])
 
-    bucket = service.buckets.find(ENV['S3_BUCKET'])
-    new_object = bucket.objects.build("#{filename}-#{SecureRandom.hex}.#{extension}")
-    new_object.content = open(image.path)
+    new_object = bucket.object("#{filename}-#{SecureRandom.hex}.#{extension}")
+    new_object.put(body: open(image.path))
 
-
-    return new_object.url if new_object.save
+    return new_object.public_url if new_object.acl.put(acl: 'public-read')
     false
   end
 
